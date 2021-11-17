@@ -91,6 +91,8 @@ function runMocha(modes: { watch?: boolean; parallel?: boolean }) {
       const str = String(data)
       result.stdout += str
 
+      // console.log('stdout', str)
+
       const passing = str.match(/(\d+) passing/)
       if (passing) {
         result.passing = parseInt(passing[1])
