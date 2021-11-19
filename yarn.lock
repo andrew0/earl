@@ -1629,6 +1629,19 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.5.tgz#d3bf891748dcf49a148a4591ef6c16caae4b32ed"
   integrity sha512-ljr9hGQYW3kZY1NmQbmSe4yXvgq3KDRt0FMBOB5OaDWqi4X2WzEsp6SZ02KmVrieNW1cjWlj13pgvcf0towZPw==
 
+"@microsoft/api-documenter@^7.13.68":
+  version "7.13.68"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.13.68.tgz#c1e144764cac0684adefe78fd848d78c3f374681"
+  integrity sha512-cRjwK1TDyGxFGgCsRG8G0Yi3Z4akvfWgw1pWAxKFbm7ajlQQGZcHPnb+n4lKlSeQ5g/cxc7hcdw54Mvisne9Bg==
+  dependencies:
+    "@microsoft/api-extractor-model" "7.13.16"
+    "@microsoft/tsdoc" "0.13.2"
+    "@rushstack/node-core-library" "3.43.2"
+    "@rushstack/ts-command-line" "4.10.4"
+    colors "~1.2.1"
+    js-yaml "~3.13.1"
+    resolve "~1.17.0"
+
 "@microsoft/api-extractor-model@7.13.16":
   version "7.13.16"
   resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.13.16.tgz#1d67541ebbcea32672c5fdd9392dc1579b2fc23a"
@@ -1656,7 +1669,7 @@
     source-map "~0.6.1"
     typescript "~4.4.2"
 
-"@microsoft/tsdoc-config@~0.15.2":
+"@microsoft/tsdoc-config@0.15.2", "@microsoft/tsdoc-config@~0.15.2":
   version "0.15.2"
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc-config/-/tsdoc-config-0.15.2.tgz#eb353c93f3b62ab74bdc9ab6f4a82bcf80140f14"
   integrity sha512-mK19b2wJHSdNf8znXSMYVShAHktVr/ib0Ck2FA3lsVBSEhSI/TfXT7DJQkAYgcztTuwazGcg58ZjYdk0hTCVrA==
@@ -6169,6 +6182,14 @@ eslint-plugin-sonarjs@^0.8.0-125:
   resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.8.0-125.tgz#d19fc8a579bb3b2a16879b6375516c9c3c12e60c"
   integrity sha512-/nl3Yzy8cHxCj5ohQL8dEqK2AhQqjTM/oXz5K3bU/7XbsBTz0BgyEsDvdz7gdtRlAe0Hzrf2v3qLVHA506Qheg==
 
+eslint-plugin-tsdoc@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-tsdoc/-/eslint-plugin-tsdoc-0.2.14.tgz#e32e7c1df8af7b3009c252590bec07a1030afbf2"
+  integrity sha512-fJ3fnZRsdIoBZgzkQjv8vAj6NeeOoFkTfgosj6mKsFjX70QV256sA/wq+y/R2+OL4L8E79VVaVWrPeZnKNe8Ng==
+  dependencies:
+    "@microsoft/tsdoc" "0.13.2"
+    "@microsoft/tsdoc-config" "0.15.2"
+
 eslint-plugin-unused-imports@^1.1.1:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-unused-imports/-/eslint-plugin-unused-imports-1.1.5.tgz#a2b992ef0faf6c6c75c3815cc47bde76739513c2"
@@ -9063,6 +9084,14 @@ js-yaml@3.14.0, js-yaml@^3.11.0, js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.6.
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
   integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@~3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
+  integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"

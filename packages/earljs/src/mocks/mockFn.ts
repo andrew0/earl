@@ -38,10 +38,19 @@ interface Override {
   spec: Spec
 }
 
+/**
+ * @public
+ */
 export function mockFn<FUNCTION_SIG extends (...args: any) => any>(
   defaultImpl?: FUNCTION_SIG,
 ): Mock<Parameters<FUNCTION_SIG>, ReturnType<FUNCTION_SIG>>
+/**
+ * @public
+ */
 export function mockFn<ARGS extends any[], RETURN = any>(defaultImpl?: (...args: ARGS) => RETURN): Mock<ARGS, RETURN>
+/**
+ * @public
+ */
 export function mockFn<ARGS extends any[], RETURN = any>(defaultImpl?: (...args: ARGS) => RETURN): Mock<ARGS, RETURN> {
   let spec: Spec = {
     type: 'not-ready',

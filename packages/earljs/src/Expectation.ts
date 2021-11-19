@@ -15,10 +15,16 @@ import { toLooseEqual } from './validators/toLooseEqual'
 import { toReferentiallyEqual } from './validators/toReferentiallyEqual'
 import { toThrow } from './validators/toThrow'
 
+/**
+ * @public
+ */
 export interface ExpectationOptions {
   extraMessage?: string
 }
 
+/**
+ * @public
+ */
 export class Expectation<T> {
   constructor(
     private readonly actual: T,
@@ -52,7 +58,7 @@ export class Expectation<T> {
    * You can use matchers in place of a value. When a matcher is encountered its
    * internal rules are used instead of the usual checks.
    *
-   * @param value value to check against.
+   * @param value - value to check against.
    */
   toEqual(value: T): void {
     toEqual(this.getControl(), value)
@@ -65,7 +71,7 @@ export class Expectation<T> {
    * You can use matchers in place of a value. When a matcher is encountered its
    * internal rules are used instead of the usual checks.
    *
-   * @param value value to check against.
+   * @param value - value to check against.
    */
   toLooseEqual(value: any): void {
     toLooseEqual(this.getControl(), value)
@@ -81,7 +87,7 @@ export class Expectation<T> {
    * This function should be used if you care about object identity rather than
    * deep equality.
    *
-   * @param value value to check against.
+   * @param value - value to check against.
    */
   toReferentiallyEqual(this: Expectation<T>, value: T): void {
     toReferentiallyEqual(this.getControl(), value as any)
@@ -95,15 +101,15 @@ export class Expectation<T> {
    * Calls the provided function and expects an error to be thrown. The message
    * of the error is also checked.
    *
-   * @param message string or matcher to check the message against.
+   * @param message - string or matcher to check the message against.
    */
   toThrow(this: Expectation<() => any>, message: string): void
   /**
    * Calls the provided function and expects an error to be thrown. The error's
    * class and message are also checked.
    *
-   * @param errorClass expected class of the thrown error.
-   * @param message string or matcher to check the message against.
+   * @param errorClass - expected class of the thrown error.
+   * @param message - string or matcher to check the message against.
    */
   toThrow(this: Expectation<() => any>, errorClass: Newable<Error>, message?: string): void
   toThrow(this: Expectation<() => any>, classOrMessage?: string | Newable<Error>, message?: string): void {
@@ -122,15 +128,15 @@ export class Expectation<T> {
    * Awaits the provided promise and expects it to be rejected. The message
    * of the error is also checked.
    *
-   * @param message string or matcher to check the message against.
+   * @param message - string or matcher to check the message against.
    */
   toBeRejected(this: Expectation<Promise<any>>, message: string): Promise<void>
   /**
    * Awaits the provided promise and expects it to be rejected. The error's
    * class and message are also checked.
    *
-   * @param errorClass expected class of the thrown error.
-   * @param message string or matcher to check the message against.
+   * @param errorClass - expected class of the thrown error.
+   * @param message - string or matcher to check the message against.
    */
   toBeRejected(this: Expectation<Promise<any>>, errorClass: Newable<Error>, message?: string): Promise<void>
   toBeRejected(
@@ -151,7 +157,7 @@ export class Expectation<T> {
    * 1. `expect(object).toBeA(MyClass)` - checks if object is instance of `MyClass`, but not `Other`
    * 2. `expect(foo).toBeA(String)` - checks if foo is instance of string
    *
-   * @param clazz type class or primitive constructor to match against.
+   * @param clazz - type class or primitive constructor to match against.
    */
   toBeA(this: Expectation<T>, clazz: any) {
     return toBeA(this.getControl(), clazz)
@@ -160,7 +166,7 @@ export class Expectation<T> {
   /**
    * Checks if the value is an iterable containing all of the provided items.
    *
-   * @param expectedItems values or matchers to look for in the matched iterable. Order of the items doesn't matter.
+   * @param expectedItems - values or matchers to look for in the matched iterable. Order of the items doesn't matter.
    */
   toBeAContainerWith(this: Expectation<any>, ...expectedItems: any[]) {
     return toBeAContainerWith(this.getControl(), expectedItems)
@@ -169,7 +175,7 @@ export class Expectation<T> {
   /**
    * Checks if the values is an array containing exactly given number of items.
    *
-   * @param length expected array length. Can be a matcher.
+   * @param length - expected array length. Can be a matcher.
    */
   toBeAnArrayOfLength(this: Expectation<ReadonlyArray<any>>, length: number) {
     return toBeAnArrayOfLength(this.getControl(), length)
@@ -178,7 +184,7 @@ export class Expectation<T> {
   /**
    * Checks if the value is an array containing all of the provided items.
    *
-   * @param expectedItems values or matchers to look for in the matched array. Order of the items doesn't matter.
+   * @param expectedItems - values or matchers to look for in the matched array. Order of the items doesn't matter.
    */
   toBeAnArrayWith(this: Expectation<ReadonlyArray<any>>, ...expectedItems: ReadonlyArray<any>) {
     return toBeAnArrayWith(this.getControl(), expectedItems)
@@ -187,7 +193,7 @@ export class Expectation<T> {
   /**
    * Checks if the value is an object containing given key-value pairs.
    *
-   * @param subset an object to match against.
+   * @param subset - an object to match against.
    */
   toBeAnObjectWith(this: Expectation<Object>, subset: Object) {
     return toBeAnObjectWith(this.getControl(), subset)
@@ -195,7 +201,7 @@ export class Expectation<T> {
 
   /**
    * Checks if the value is greater than the provided target.
-   * @param target number to check against.
+   * @param target - number to check against.
    */
   toBeGreaterThan(this: Expectation<number>, target: number) {
     return toBeGreaterThan(this.getControl(), target)
@@ -203,7 +209,7 @@ export class Expectation<T> {
 
   /**
    * Checks if the value is greater than or equal to the provided target.
-   * @param target number to check against.
+   * @param target - number to check against.
    */
   toBeGreaterThanOrEqualTo(this: Expectation<number>, target: number) {
     return toBeGreaterThanOrEqualTo(this.getControl(), target)
@@ -211,7 +217,7 @@ export class Expectation<T> {
 
   /**
    * Checks if the value is less than the provided target.
-   * @param target number to check against.
+   * @param target - number to check against.
    */
   toBeLessThan(this: Expectation<number>, target: number) {
     return toBeLessThan(this.getControl(), target)
@@ -219,7 +225,7 @@ export class Expectation<T> {
 
   /**
    * Checks if the value is less than or equal the provided target.
-   * @param target number to check against.
+   * @param target - number to check against.
    */
   toBeLessThanOrEqualTo(this: Expectation<number>, target: number) {
     return toBeLessThanOrEqualTo(this.getControl(), target)
@@ -238,7 +244,7 @@ export class Expectation<T> {
    * You can use matchers in place of a value. When a matcher is encountered its
    * internal rules are used instead of the usual checks.
    *
-   * @param args an array of values or matchers to check the mock calls against.
+   * @param args - an array of values or matchers to check the mock calls against.
    */
   toHaveBeenCalledWith(this: Expectation<Mock<any[], any>>, args: MockArgs<T>) {
     return toHaveBeenCalledWith(this.getControl(), args)
@@ -250,7 +256,7 @@ export class Expectation<T> {
    * You can use matchers in place of a value. When a matcher is encountered its
    * internal rules are used instead of the usual checks.
    *
-   * @param args an array where each item is an array of values or matchers to check the mock call against.
+   * @param args - an array where each item is an array of values or matchers to check the mock call against.
    */
   toHaveBeenCalledExactlyWith(this: Expectation<Mock<any[], any>>, args: MockArgs<T>[]) {
     return toHaveBeenCalledExactlyWith(this.getControl(), args)

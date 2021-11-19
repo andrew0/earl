@@ -15,7 +15,7 @@ module.exports = {
       'guides/test-runner-integration',
       'guides/snapshot-testing',
     ],
-    API: ['api/api-reference'],
+    API: ['api/earljs', 'api-reference'],
     Advanced: ['advanced/plugin-development'],
   },
 }

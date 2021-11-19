@@ -1,7 +1,8 @@
 /** Config file for API Extractor.  For more info, please visit: https://api-extractor.com */
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-  "projectFolder": "packages/earljs",
+  // "extends": "",
+  "projectFolder": ".",
   "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts",
   "bundledPackages": [],
   "compiler": {
@@ -9,8 +10,8 @@
   },
   "apiReport": {
     "enabled": true,
-    "reportFileName": "<unscopedPackageName>.api.md",
-    "reportFolder": "packages/docs/api",
+    "reportFileName": "<unscopedPackageName>.api-report.md",
+    "reportFolder": ".",
     "reportTempFolder": ".temp/"
   },
 

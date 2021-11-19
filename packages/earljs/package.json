@@ -42,7 +42,9 @@
     "build:watch:test": "yarn clean && tsc -p ./tsconfig.json --watch",
     "test": "mocha",
     "test:fix": "yarn lint:fix && yarn format:fix && yarn typecheck && yarn test",
-    "release": "yarn lint && yarn format && yarn typecheck && yarn test && yarn build"
+    "release": "yarn lint && yarn format && yarn typecheck && yarn test && yarn build",
+    "api-extractor": "api-extractor run --verbose --local",
+    "api-reference": "api-documenter markdown -i ./.temp -o ../docs/api"
   },
   "dependencies": {
     "debug": "^4.1.1",

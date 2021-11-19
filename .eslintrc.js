@@ -4,13 +4,14 @@ module.exports = {
     es6: true,
   },
   extends: ['typestrict'],
-  plugins: ['no-only-tests', 'simple-import-sort', 'unused-imports', 'import'],
+  plugins: ['tsdoc', 'no-only-tests', 'simple-import-sort', 'unused-imports', 'import'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
     sourceType: 'module',
   },
   rules: {
+    'tsdoc/syntax': 'warn',
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': ['error'],
     'no-invalid-this': 'off',
