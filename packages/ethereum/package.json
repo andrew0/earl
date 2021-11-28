@@ -1,0 +1,27 @@
+{
+  "name": "@dethcrypto/earl-ethereum",
+  "private": "true",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./types.d.ts",
+  "scripts": {
+    "start": "ts-node -T ./src/index.ts",
+    "format": "prettier --ignore-path ../../.prettierignore --check .",
+    "format:fix": "prettier --ignore-path ../../.prettierignore --write .",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "yarn lint --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc -p ./tsconfig.json",
+    "test:fix": "yarn lint:fix && yarn format:fix && yarn typecheck"
+  },
+  "devDependencies": {
+    "earljs": "*",
+    "ethers": "^5.5.1"
+  },
+  "peerDependencies": {
+    "earljs": "*"
+  }
+}

@@ -1,0 +1,2 @@
+// load plugin
+import '../src'
